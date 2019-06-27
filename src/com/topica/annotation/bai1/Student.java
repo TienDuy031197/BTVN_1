@@ -1,17 +1,15 @@
 package com.topica.annotation.bai1;
 
 public class Student {
-	@getNameFieldMethod(value = "Name")
+	@getNameFieldMethod
 	private String name;
 
-	@getNameFieldMethod(value = "age")
+	@getNameFieldMethod
 	private Integer age;
-
 	private String address;
 
-	@getNameFieldMethod(value = "data")
+	@getNameFieldMethod
 	public static final String data = "This is Data";
-
 	public static final String process = "Processer";
 
 	public Student(String name, Integer age, String address) {
@@ -21,12 +19,12 @@ public class Student {
 		this.address = address;
 	}
 
-	@getNameFieldMethod(value = "get Name")
+	@getNameFieldMethod
 	public String getName() {
 		return name;
 	}
 
-	@getNameFieldMethod(value = "set Name")
+	@getNameFieldMethod
 	public void setName(String name) {
 		this.name = name;
 	}

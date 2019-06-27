@@ -25,31 +25,31 @@ public class Annotation {
 		Method[] methods = newClass.getDeclaredMethods();
 
 		// get Name of Field
-		for (Field fid : fields) {
-			getNameFieldMethod field = fid.getAnnotation(getNameFieldMethod.class);
-			if (field != null) {
-				fid.setAccessible(true);
-				System.out.println("Field placed Annotation: " + fid.getName());
+		for (Field field : fields) {
+			getNameFieldMethod checkAnno = field.getAnnotation(getNameFieldMethod.class);
+			if (checkAnno != null) {
+				field.setAccessible(true);
+				System.out.println("Field placed Annotation: " + field.getName());
 			}
 		}
 
 		// get Name of Method
-		for (Method mt : methods) {
-			getNameFieldMethod method = mt.getAnnotation(getNameFieldMethod.class);
-			if (method != null) {
-				mt.setAccessible(true);
-				System.out.println("Method placed Annotation: " + mt.getName());
+		for (Method method : methods) {
+			getNameFieldMethod checkAnno = method.getAnnotation(getNameFieldMethod.class);
+			if (checkAnno != null) {
+				method.setAccessible(true);
+				System.out.println("Method placed Annotation: " + method.getName());
 			}
 		}
 
 		// get value of field STATIC FINAL
-		for (Field fid : fields) {
-			int getModifier = fid.getModifiers();
+		for (Field field : fields) {
+			int getModifier = field.getModifiers();
 			if (Modifier.isStatic(getModifier) && Modifier.isFinal(getModifier)) {
-				getNameFieldMethod staticFinal = fid.getAnnotation(getNameFieldMethod.class);
-				if (staticFinal != null) {
+				getNameFieldMethod checkAnno = field.getAnnotation(getNameFieldMethod.class);
+				if (checkAnno != null) {
 					try {
-						System.out.println("Value of Field Static Final " + fid.getName() + " : " + fid.get(obj));
+						System.out.println("Value of Field Static Final " + field.getName() + " : " + field.get(obj));
 					} catch (IllegalArgumentException | IllegalAccessException e) {
 						e.printStackTrace();
 					}
